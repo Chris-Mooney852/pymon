@@ -1,11 +1,44 @@
-# Simple pygame program
-
-# Import and initialize the pygame library
+# Imports
 import pygame
+from gpiozero import Button
+from time import sleep
+
+# Initialise pygame
 pygame.init()
 
+# Configure Buttons
+key1 = Button(21)
+key2 = Button(20)
+key3 = Button(16)
+
+up = Button(6)
+down = Button(19)
+left = Button(5)
+right = Button(26)
+press = Button(13)
+
 # Set up the drawing window
-screen = pygame.display.set_mode([128, 128])
+screen = pygame.display.set_mode([128, 128], pygame.FULLSCREEN);
+
+# Set FPS
+fps = pygame.time.Clock()
+
+# Hide mouse
+pygame.mouse.set_visible(False)
+
+x = 64
+y = 64
+
+class Digimon(pygame.sprite.Sprite):
+    def __init__(self, pos) -> None:
+        super().__init__()
+
+        self.image = pygame.image.load('./assets/eggs/digitama_mem.gif').convert_alpha()
+        
+        self.rect = self.image.get_rect(center=pos)
+
+
+egg = Digimon((64, 64))
 
 # Run until the user asks to quit
 running = True

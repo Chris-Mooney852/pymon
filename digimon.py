@@ -8,7 +8,7 @@ class Digimon(pygame.sprite.Sprite):
         super().__init__()
 
         self.isEgg = True
-        self.timeToDigivolve = 1000
+        self.timeToDigivolve = 500
         self.timeSinceLastEvolution = 0
         self.timeToPoop = random.randint(2000, 3000)
         self.timeSinceLastPoop = 0
